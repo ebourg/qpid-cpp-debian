@@ -1,6 +1,6 @@
 --- a/src/Makefile.am
 +++ b/src/Makefile.am
-@@ -204,8 +204,8 @@
+@@ -213,8 +213,8 @@
  # Definitions for client and daemon plugins
  PLUGINLDFLAGS=-no-undefined -module -avoid-version
  confdir=$(sysconfdir)/qpid

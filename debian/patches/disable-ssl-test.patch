@@ -1,6 +1,6 @@
 --- a/src/tests/Makefile.am
 +++ b/src/tests/Makefile.am
-@@ -143,9 +143,6 @@
+@@ -144,9 +144,6 @@
  
  include cluster.mk
  include sasl.mk
@@ -10,11 +10,11 @@
  
  # Test programs that are installed and therefore built as part of make, not make check
  
-@@ -318,7 +315,6 @@
+@@ -319,7 +316,6 @@
    topictest								\
    run_header_test							\
    header_test.py							\
 -  ssl_test								\
    config.null								\
-   ais_check								\
+   cpg_check.sh.in							\
    run_federation_tests							\

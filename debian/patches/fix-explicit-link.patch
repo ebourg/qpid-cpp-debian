@@ -207,13 +207,13 @@
 @@ -68,7 +68,7 @@
  TESTS+=unit_test
  check_PROGRAMS+=unit_test
- unit_test_LDADD=-lboost_unit_test_framework \
+ unit_test_LDADD=-lboost_unit_test_framework -lpthread \
 -	$(lib_messaging) $(lib_broker) $(lib_console) $(lib_qmf2)
 +	$(lib_messaging) $(lib_broker) $(lib_console) $(lib_qmf2) $(lib_client) -lqpidtypes $(lib_common)
  
  unit_test_SOURCES= unit_test.cpp unit_test.h \
  	MessagingSessionTests.cpp \
-@@ -157,7 +157,7 @@
+@@ -155,7 +155,7 @@
    receiver.cpp \
    TestOptions.h \
    ConnectionOptions.h
@@ -222,7 +222,7 @@
  
  qpidexectest_PROGRAMS += sender
  sender_SOURCES = \
-@@ -165,7 +165,7 @@
+@@ -163,7 +163,7 @@
    TestOptions.h \
    ConnectionOptions.h \
    Statistics.cpp
@@ -231,7 +231,7 @@
  
  qpidexectest_PROGRAMS += qpid-receive
  qpid_receive_SOURCES = \
-@@ -174,7 +174,7 @@
+@@ -172,7 +172,7 @@
    ConnectionOptions.h \
    Statistics.h \
    Statistics.cpp
@@ -240,7 +240,7 @@
  
  qpidexectest_PROGRAMS += qpid-send
  qpid_send_SOURCES = \
-@@ -183,42 +183,42 @@
+@@ -181,42 +181,42 @@
    ConnectionOptions.h \
    Statistics.h \
    Statistics.cpp
@@ -291,7 +291,7 @@
  
  #
  # Other test programs
-@@ -227,74 +227,74 @@
+@@ -225,74 +225,74 @@
  check_PROGRAMS+=echotest
  echotest_INCLUDES=$(PUBLIC_INCLUDES)
  echotest_SOURCES=echotest.cpp TestOptions.h ConnectionOptions.h
@@ -383,7 +383,7 @@
      VALGRIND=$(VALGRIND) \
 --- a/src/tests/cluster.mk
 +++ b/src/tests/cluster.mk
-@@ -97,7 +97,7 @@
+@@ -94,7 +94,7 @@
  # build and so we need to make sure it is present in the tarball
  EXTRA_DIST += StoreStatus.cpp
  
@@ -404,12 +404,12 @@
  EXTRA_DIST+=testagent.xml
 --- a/src/tests/sasl.mk
 +++ b/src/tests/sasl.mk
-@@ -23,7 +23,7 @@
+@@ -24,7 +24,7 @@
  check_PROGRAMS+=cluster_authentication_soak
  cluster_authentication_soak_INCLUDES=$(PUBLIC_INCLUDES)
  cluster_authentication_soak_SOURCES=cluster_authentication_soak.cpp  ForkedBroker.h ForkedBroker.cpp
 -cluster_authentication_soak_LDADD=$(lib_client) $(lib_broker)
 +cluster_authentication_soak_LDADD=$(lib_client) $(lib_broker) $(lib_common)
+ endif HAVE_LIBCPG
  
  # Note: sasl_version is not a test -- it is a tool used by tests.
- check_PROGRAMS+=sasl_version
