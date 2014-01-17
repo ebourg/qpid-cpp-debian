@@ -1,3 +1,10 @@
+qpid-cpp (0.18-1) UNRELEASED; urgency=medium
+
+  * New upstam release
+    - Refreshed the patches and removed the ones applied upstream
+
+ -- Emmanuel Bourg <ebourg@apache.org>  Fri, 17 Jan 2014 12:40:59 +0100
+
 qpid-cpp (0.16-7) unstable; urgency=low
 
   * Fixes security issue CVE-2012-3467 which may allow bypassing the
