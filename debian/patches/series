@@ -6,3 +6,4 @@ fix-perl-install.patch
 module-location.patch
 fix-armel-compilation.patch
 sasldb-location.patch
+fix-template.patch
